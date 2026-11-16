@@ -1,0 +1,568 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:wght@400;500&display=swap');
+
+/* ========================= */
+/* CONFIGURACIÓN GENERAL */
+/* ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', serif;
+    overflow-x: hidden;
+}
+
+/* ========================= */
+/* PORTADA */
+/* ========================= */
+
+body.inicio {
+    background: #111;
+    color: #fff;
+}
+
+.inicio {
+    background: #111;
+}
+
+.libro-body {
+    background: 
+        linear-gradient(rgba(78,58,38,.15), rgba(78,58,38,.15)),
+        #d6c4a1;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    z-index: -1;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 70px;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+
+.hero h2 {
+    font-size: 28px;
+    color: #d9c89b;
+    margin-bottom: 35px;
+    font-weight: normal;
+}
+
+.hero p {
+    max-width: 700px;
+    line-height: 1.9;
+    font-size: 20px;
+    color: #ddd;
+    margin-bottom: 45px;
+}
+
+.boton {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    border: 2px solid #d9c89b;
+    padding: 16px 45px;
+    border-radius: 40px;
+    transition: .3s;
+}
+
+.boton:hover {
+    background: #d9c89b;
+    color: #111;
+    transform: scale(1.05);
+}
+
+/* ========================= */
+/* ESTRUCTURA DEL LIBRO */
+/* ========================= */
+
+.pagina {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding: 40px 15px;
+}
+
+.libro {
+    width: 100%;
+    max-width: 850px;
+    background: #fdf8ef;
+    padding: 60px 80px;
+    border: 1px solid #d9c49a;
+    box-shadow: 
+        0 10px 30px rgba(0,0,0,.18),
+        inset 0 0 60px rgba(189,167,126,.12);
+    position: relative;
+    overflow: hidden;
+    animation: aparecer .8s ease;
+}
+
+/* Bordes decorativos laterales del papel */
+.libro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    background: #d5b98b;
+}
+
+.libro::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background: #efe4cd;
+}
+
+/* Estilos tipográficos internos */
+.libro h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 56px;
+    text-align: center;
+    color: #2c241d;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,.08);
+}
+
+.libro h4 {
+    text-align: center;
+    letter-spacing: 8px;
+    color: #94754c;
+    margin-bottom: 18px;
+}
+
+.libro h3 {
+    text-align: center;
+    color: #777;
+    font-weight: normal;
+    margin: 15px 0 30px;
+}
+
+.libro hr {
+    width: 180px;
+    margin: 35px auto;
+    border: none;
+    border-top: 2px solid #ceb88d;
+}
+
+.libro p {
+    color: #2e2e2e;
+    font-size: 22px;
+    line-height: 2.2;
+    text-align: justify;
+    text-indent: 45px;
+    margin-bottom: 28px;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================= */
+/* BOTÓN SIGUIENTE CAPÍTULO */
+/* ========================= */
+
+.contenedor-siguiente {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #e0d1b3;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.boton-atras {
+    background-color: transparent;
+    color: #2c241d;
+    border: 1px solid #2c241d;
+}
+
+.boton-atras:hover {
+    background-color: #2c241d;
+    color: #fdf8ef;
+}
+
+.boton-capitulo {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: #2c241d;
+    color: #fdf8ef;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.boton-capitulo:hover {
+    background-color: #94754c;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+}
+
+/* ========================= */
+/* ÍNDICE FLOTANTE */
+/* ========================= */
+
+#indice {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s;
+    z-index: 1000;
+}
+
+#indice.mostrar {
+    opacity: 1;
+    visibility: visible;
+}
+
+#abrirIndice {
+    background: #222;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: .3s;
+}
+
+#abrirIndice:hover {
+    background: #444;
+}
+
+.comenzar {
+    margin-top: 60px;
+    text-align: center;
+}
+
+/* ========================= */
+/* RESPONSIVE (MÓVILES / ANDROID) */
+/* ========================= */
+
+@media(max-width: 768px) {
+    .hero h1 {
+        font-size: 44px;
+        letter-spacing: 2px;
+    }
+
+    .hero h2 {
+        font-size: 22px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .pagina {
+        padding: 20px 10px;
+    }
+
+    .libro {
+        padding: 35px 20px;
+    }
+
+    .libro h1 {
+        font-size: 32px;
+    }
+
+    .libro h4 {
+        letter-spacing: 4px;
+        font-size: 13px;
+    }
+
+    .libro p {
+        font-size: 17px;
+        text-indent: 20px;
+        line-height: 1.8;
+    }
+
+    .contenedor-siguiente {
+        margin-top: 35px;
+        padding-top: 20px;
+    }
+    
+    .boton-capitulo {
+        padding: 12px 24px;
+        font-size: 14px;
+        width: 100%;
+    }
+}
+
+/* ========================= */
+/* BOTONES EN INDEX / PORTADA */
+/* ========================= */
+
+.hero-botones {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.boton-secundario {
+    background: transparent;
+    cursor: pointer;
+    font-family: 'Lora', serif;
+    font-size: 16px;
+}
+
+/* ========================= */
+/* MODAL ÍNDICE DE PORTADA */
+/* ========================= */
+
+.modal-indice {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-indice.activo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.contenido-indice {
+    background: #fdf8ef;
+    border: 1px solid #d9c49a;
+    width: 90%;
+    max-width: 450px;
+    padding: 35px 25px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-align: center;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-indice.activo .contenido-indice {
+    transform: translateY(0);
+}
+
+.contenido-indice h2 {
+    font-family: 'Cinzel', serif;
+    color: #2c241d;
+    font-size: 26px;
+}
+
+.contenido-indice hr {
+    width: 60px;
+    margin: 15px auto 20px;
+    border-top: 2px solid #ceb88d;
+}
+
+.contenido-indice ul {
+    list-style: none;
+    padding: 0;
+    max-height: 55vh;
+    overflow-y: auto;
+}
+
+.contenido-indice li {
+    margin: 14px 0;
+}
+
+.contenido-indice a {
+    color: #2c241d;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.2s;
+    display: block;
+}
+
+.contenido-indice a:hover {
+    color: #94754c;
+    font-weight: bold;
+}
+
+.cerrar-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    color: #94754c;
+    cursor: pointer;
+}
+
+/* ========================= */
+/* GUARDAR LECTURA */
+/* ========================= */
+
+.banner-continuar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fdf8ef;
+    border: 1px solid #d9c49a;
+    padding: 15px 25px;
+    border-radius: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+    color: #2c241d;
+    font-size: 15px;
+}
+
+.boton-continuar {
+    background: #2c241d;
+    color: #fdf8ef;
+    text-decoration: none;
+    padding: 6px 15px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-family: 'Cinzel', serif;
+}
+
+#cerrarBanner {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #94754c;
+}
+
+/* ========================= */
+/* MUSICA */
+/* ========================= */
+
+.reproductor-musica {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+#btnMusica {
+    background: #2c241d;
+    color: #fdf8ef;
+    border: 1px solid #d9c49a;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+#btnMusica:hover {
+    transform: scale(1.1);
+}
+
+/* ========================= */
+/* SECCIÓN MENSAJE FINAL (EPÍLOGO) */
+/* ========================= */
+
+.seccion-mensaje {
+    text-align: center;
+    margin-top: 50px;
+    padding: 30px 20px 10px;
+    border-top: 1px solid #e0d1b3;
+    animation: aparecer 1s ease;
+}
+
+.linea-decorativa {
+    font-size: 20px;
+    color: #ceb88d;
+    margin-bottom: 10px;
+}
+
+.seccion-mensaje h3 {
+    font-family: 'Cinzel', serif;
+    color: #2c241d;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.seccion-mensaje p {
+    font-size: 17px !important;
+    text-indent: 0 !important;
+    text-align: center !important;
+    color: #665b4e;
+    max-width: 550px;
+    margin: 0 auto 30px !important;
+    line-height: 1.6 !important;
+}
+
+.boton-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #2c241d;
+    color: #fdf8ef;
+    text-decoration: none;
+    padding: 16px 36px;
+    border-radius: 40px;
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    border: 1px solid #d9c49a;
+    box-shadow: 0 6px 18px rgba(44, 36, 29, 0.25);
+    transition: all 0.3s ease;
+}
+
+.boton-whatsapp:hover {
+    background-color: #25d366; /* Cambia a verde sutil solo cuando pasa el cursor por encima */
+    color: #ffffff;
+    border-color: #25d366;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(37, 211, 102, 0.35);
+}
+
+.icono-wa {
+    font-size: 18px;
+}
